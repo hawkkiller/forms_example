@@ -10,14 +10,21 @@ final class AppTheme with Diagnosticable {
   /// {@macro app_theme}
   AppTheme({required this.themeMode, required this.seed})
       : darkTheme = ThemeData(
-          colorSchemeSeed: seed,
           brightness: Brightness.dark,
           useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: seed,
+            dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+            brightness: Brightness.dark,
+          ),
         ),
         lightTheme = ThemeData(
-          colorSchemeSeed: seed,
           brightness: Brightness.light,
           useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: seed,
+            dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+          ),
         );
 
   /// The type of theme to use.
@@ -35,7 +42,7 @@ final class AppTheme with Diagnosticable {
   /// The default [AppTheme].
   static final defaultTheme = AppTheme(
     themeMode: ThemeMode.system,
-    seed: Colors.blue,
+    seed: Colors.purple,
   );
 
   /// The [ThemeData] for this [AppTheme].
@@ -47,7 +54,7 @@ final class AppTheme with Diagnosticable {
       case ThemeMode.dark:
         return darkTheme;
       case ThemeMode.system:
-        return PlatformDispatcher.instance.platformBrightness == Brightness.dark
+        return WidgetsBinding.instance.platformDispatcher.platformBrightness == Brightness.dark
             ? darkTheme
             : lightTheme;
     }

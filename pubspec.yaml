@@ -47,6 +47,9 @@ dependencies:
   firebase_core: ^3.6.0
   firebase_analytics: ^11.3.3
 
+  # Navigation
+  go_router: ^14.6.2
+
   # Utils
   path: ^1.9.0
   path_provider: ^2.1.5
@@ -70,6 +73,7 @@ dev_dependencies:
   # Codegen
   drift_dev: ^2.21.2
   build_runner: ^2.4.13
+  go_router_builder: ^2.7.1
 
 flutter:
   uses-material-design: true
