@@ -43,6 +43,7 @@ class _MaterialContextState extends State<MaterialContext> {
       locale: settings.locale,
       localizationsDelegates: Localization.localizationDelegates,
       supportedLocales: Localization.supportedLocales,
+      debugShowCheckedModeBanner: false,
       builder: (context, child) => MediaQuery(
         key: MaterialContext._globalKey,
         data: mediaQueryData.copyWith(

@@ -14,7 +14,7 @@ final class AppTheme with Diagnosticable {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
             seedColor: seed,
-            dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+            dynamicSchemeVariant: DynamicSchemeVariant.neutral,
             brightness: Brightness.dark,
           ),
         ),
@@ -23,7 +23,7 @@ final class AppTheme with Diagnosticable {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
             seedColor: seed,
-            dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+            dynamicSchemeVariant: DynamicSchemeVariant.neutral,
           ),
         );
 

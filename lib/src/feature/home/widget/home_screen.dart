@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizzle_starter/src/core/router/router.dart';
 import 'package:sizzle_starter/src/feature/initialization/widget/dependencies_scope.dart';
 
 /// {@template home_screen}
@@ -48,9 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 16),
                     FilledButton.tonalIcon(
-                      onPressed: () {},
                       icon: const Icon(Icons.edit),
                       label: const Text('Fill the Form'),
+                      onPressed: () => SubmitFormRoute().go(context),
                     ),
                   ],
                 ),
