@@ -1,6 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+ThemeData _generateBaseThemeMode(Brightness brightness, Color seed) {
+  final colorScheme = ColorScheme.fromSeed(
+    dynamicSchemeVariant: DynamicSchemeVariant.neutral,
+    seedColor: seed,
+    brightness: brightness,
+  );
+
+  return ThemeData(
+    brightness: brightness,
+    colorScheme: colorScheme,
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: colorScheme.primary,
+        ),
+      ),
+    ),
+  );
+}
+
 /// {@template app_theme}
 /// An immutable class that holds properties needed
 /// to build a [ThemeData] for the app.
@@ -9,23 +29,8 @@ import 'package:flutter/material.dart';
 final class AppTheme with Diagnosticable {
   /// {@macro app_theme}
   AppTheme({required this.themeMode, required this.seed})
-      : darkTheme = ThemeData(
-          brightness: Brightness.dark,
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: seed,
-            dynamicSchemeVariant: DynamicSchemeVariant.neutral,
-            brightness: Brightness.dark,
-          ),
-        ),
-        lightTheme = ThemeData(
-          brightness: Brightness.light,
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: seed,
-            dynamicSchemeVariant: DynamicSchemeVariant.neutral,
-          ),
-        );
+      : darkTheme = _generateBaseThemeMode(Brightness.dark, seed),
+        lightTheme = _generateBaseThemeMode(Brightness.light, seed);
 
   /// The type of theme to use.
   final ThemeMode themeMode;
